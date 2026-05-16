@@ -1,0 +1,12 @@
+numpy
+openpyxl
+pandas
+pillow
+streamlit
+xlsxwriter
+matplotlib
+plotly
+
+
+
+
