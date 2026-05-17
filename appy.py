@@ -109,7 +109,7 @@ def coletar_dados_paciente():
     st.header("Queixa(s) referida(s)")
     st.link_button(
     "Abrir Documento de Triagem",
-    "https://www.ukons.org/site/assets/files/1134/triage_tool_poster.pdf"
+    "https://www.ukacuteoncology.co.uk/application/files/4217/3799/3595/UKONS_Triage_tool_poster_A3_V10.pdf"
 )
 
     queixas = ["Alteração da função hepática", "Anemia", "Artralgia", "Alopecia", "Astenia", "Cefaleias",
