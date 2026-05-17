@@ -248,7 +248,7 @@ def main():
             
         # Aplicando cores com base na gravidade das queixas
         queixas_colunas = [col for col in df.columns if col not in ["Nome do paciente", "Data de nascimento", "Processo", "Médico assistente", "Último tratamento", "Protocolo de quimioterapia"]]
-        df_styled = df.style.applymap(lambda x: f'background-color: #{color_definition(x)}; color: black;' if isinstance(x, str) else '', subset=pd.IndexSlice[:, queixas_colunas])
+        df_styled = df.style.map(lambda x: f'background-color: #{color_definition(x)}; color: black;' if isinstance(x, str) else '', subset=pd.IndexSlice[:, queixas_colunas])
         st.dataframe(df_styled)
 
         # Botão para exportar para Excel com estilos e bordas
