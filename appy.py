@@ -8,7 +8,11 @@ from openpyxl import Workbook
 from openpyxl.styles import PatternFill, Border, Side
 
 # Configura a página para o layout centralizado
-st.set_page_config(layout='centered')
+st.set_page_config(
+    page_title="Oncology App",
+    page_icon="🩺",
+    layout="centered"
+)
 
 # Definir as intervenções recomendadas para cada queixa
 intervencoes = {
