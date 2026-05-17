@@ -227,7 +227,6 @@ def color_definition(val):
 def main():
     logo_url = 'https://www.ulsge.min-saude.pt/static/media/logo.a59fd095.png'
     st.image(logo_url)
-    st.image("logo.png", width=220)
     st.title("Triagem de Pacientes em Tratamento de Quimioterapia")
 
     @st.cache(allow_output_mutation=True)
