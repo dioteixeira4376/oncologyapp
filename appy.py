@@ -228,6 +228,41 @@ def color_definition(val):
         return 'FFFFFF'  # default white if val is not a string
 
 # Função principal
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(180deg, #f7fbfc 0%, #eef6f8 100%);
+}
+
+h1, h2, h3 {
+    color: #0B3C5D;
+}
+
+div[data-testid="stButton"] button {
+    border-radius: 12px;
+    border: none;
+    background: #0B7893;
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+}
+
+div[data-testid="stButton"] button:hover {
+    background: #095f75;
+    color: white;
+}
+
+div[data-testid="stDownloadButton"] button {
+    border-radius: 12px;
+    background: #0B7893;
+    color: white;
+}
+
+section[data-testid="stSidebar"] {
+    background-color: #ffffff;
+}
+</style>
+""", unsafe_allow_html=True)
 def main():
     logo_url = 'https://www.ulsge.min-saude.pt/static/media/logo.a59fd095.png'
     st.image(logo_url)
