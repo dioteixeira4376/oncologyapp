@@ -10,7 +10,7 @@ from openpyxl.styles import PatternFill, Border, Side
 # Configura a página para o layout centralizado
 st.set_page_config(
     page_title="Oncology App",
-    page_icon="🩺",
+    page_icon="logo.png",
     layout="centered"
 )
 
