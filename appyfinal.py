@@ -137,11 +137,10 @@ def coletar_dados_paciente():
     protocolo_selecionado = st.selectbox("Selecione o protocolo:", protocolo)
     
     st.header("Queixa(s) referida(s)")
-    st.markdown("""
-    <a target="_blank" href="https://www.ukons.org/site/assets/files/1134/triage_tool_poster.pdf">
-    <button style="height: 25px; width: 200px; font-size: 12px; cursor: pointer; margin-top: 0px; margin-bottom: 30px;">Abrir Documento de Triagem</button>
-    </a>
-    """, unsafe_allow_html=True)
+    st.link_button(
+    "Abrir Documento de Triagem",
+    "https://www.ukons.org/site/assets/files/1134/triage_tool_poster.pdf"
+)
 
     queixas = ["Alteração da função hepática", "Anemia", "Artralgia", "Alopecia", "Astenia", "Cefaleias",
                "Cardiomiopatia irreversível", "Cistite hemorrágica", "Dermatite", "Diarreia", "Disgeusia",
