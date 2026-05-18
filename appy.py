@@ -260,21 +260,33 @@ def coletar_dados_paciente():
 
     # Dividindo as queixas em duas colunas
     col1, col2 = st.columns(2)
-    mid_point = len(queixas) // 2
+mid_point = len(queixas) // 2
 
-    with col1:
-        for queixa in queixas[:mid_point]:
-            icone = icones_queixas.get(queixa, "➕")
-if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_1"):
-                gravidade = st.slider(f"Gravidade de {queixa} (CTCAE)", min_value=0, max_value=4, step=1, key=f"grav_{queixa}_1")
-                queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
+with col1:
+    for queixa in queixas[:mid_point]:
+        icone = icones_queixas.get(queixa, "➕")
+        if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_1"):
+            gravidade = st.slider(
+                f"Gravidade de {queixa} (CTCAE)",
+                min_value=0,
+                max_value=4,
+                step=1,
+                key=f"grav_{queixa}_1"
+            )
+            queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
 
-    with col2:
-        for queixa in queixas[mid_point:]:
-            icone = icones_queixas.get(queixa, "➕")
-if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_2"):
-                gravidade = st.slider(f"Gravidade de {queixa} (CTCAE)", min_value=0, max_value=4, step=1, key=f"grav_{queixa}_2")
-                queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
+with col2:
+    for queixa in queixas[mid_point:]:
+        icone = icones_queixas.get(queixa, "➕")
+        if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_2"):
+            gravidade = st.slider(
+                f"Gravidade de {queixa} (CTCAE)",
+                min_value=0,
+                max_value=4,
+                step=1,
+                key=f"grav_{queixa}_2"
+            )
+            queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
 
     # Entrada personalizada para "Outros"
     if st.checkbox("Outros", key="Outros"):
