@@ -11,8 +11,73 @@ from openpyxl.styles import PatternFill, Border, Side
 st.set_page_config(
     page_title="Oncology App",
     page_icon="logo.png",
-    layout="centered"
+    layout="wide"
 )
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #f7fbfc 0%, #eef8fa 100%);
+}
+
+.block-container {
+    padding-top: 2rem;
+    max-width: 1200px;
+}
+
+h1, h2, h3 {
+    color: #0B2545;
+}
+
+section[data-testid="stSidebar"] {
+    background: #ffffff;
+    border-right: 1px solid #e6eef2;
+}
+
+div[data-testid="stButton"] button,
+div[data-testid="stLinkButton"] a,
+div[data-testid="stDownloadButton"] button {
+    border-radius: 14px;
+    background: linear-gradient(135deg, #0097A7, #006D77);
+    color: white !important;
+    border: none;
+    padding: 0.65rem 1rem;
+    font-weight: 600;
+    box-shadow: 0 8px 18px rgba(0, 109, 119, 0.18);
+}
+
+div[data-testid="stButton"] button:hover,
+div[data-testid="stLinkButton"] a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 109, 119, 0.24);
+}
+
+div[data-testid="stCheckbox"] {
+    background: white;
+    padding: 0.65rem 0.9rem;
+    border-radius: 14px;
+    border: 1px solid #e6eef2;
+    margin-bottom: 0.45rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+div[data-testid="stCheckbox"]:hover {
+    border-color: #00A6B4;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+.stSelectbox, .stTextInput, .stDateInput {
+    background: white;
+    border-radius: 14px;
+}
+
+[data-testid="stMetric"] {
+    background: white;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+</style>
+""", unsafe_allow_html=True)
 
 # Definir as intervenções recomendadas para cada queixa
 intervencoes = {
@@ -264,9 +329,31 @@ section[data-testid="stSidebar"] {
 </style>
 """, unsafe_allow_html=True)
 def main():
-    logo_url = 'https://www.ulsge.min-saude.pt/static/media/logo.a59fd095.png'
-    st.image(logo_url)
-    st.title("Triagem de Pacientes em Tratamento de Quimioterapia")
+
+    with st.sidebar:
+        st.image("logo.png", width=130)
+        st.markdown("## Oncology App")
+        st.markdown("---")
+        st.markdown("📋 Triagem de Pacientes")
+        st.markdown("👤 Novo Paciente")
+        st.markdown("📊 Estatísticas")
+        st.markdown("ℹ️ Sobre a App")
+
+    col_logo, col_title, col_btn = st.columns([1, 4, 2])
+
+    with col_logo:
+        st.image("logo.png", width=90)
+
+    with col_title:
+        st.caption("TRIAGEM")
+        st.title("Triagem de Pacientes")
+        st.write("Selecione os sintomas apresentados pelo paciente.")
+
+    with col_btn:
+        st.link_button(
+            "📄 Abrir Documento de Triagem",
+            "https://www.ukacuteoncology.co.uk/wp-content/uploads/2024/10/UKONS-AOS-Triage-Tool-November-2024.pdf"
+        )
 
     @st.cache(allow_output_mutation=True)
     def get_triagem():
