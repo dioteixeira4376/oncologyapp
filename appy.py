@@ -258,64 +258,129 @@ def coletar_dados_paciente():
     # Lista completa de queixas
     queixas_gravidade = []
 
+        # Lista completa de queixas
+    queixas_gravidade = []
+
     # Dividindo as queixas em duas colunas
     col1, col2 = st.columns(2)
-mid_point = len(queixas) // 2
+    mid_point = len(queixas) // 2
 
-with col1:
-    for queixa in queixas[:mid_point]:
-        icone = icones_queixas.get(queixa, "➕")
-        if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_1"):
-            gravidade = st.slider(
-                f"Gravidade de {queixa} (CTCAE)",
-                min_value=0,
-                max_value=4,
-                step=1,
-                key=f"grav_{queixa}_1"
-            )
-            queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
+    with col1:
+        for queixa in queixas[:mid_point]:
+            icone = icones_queixas.get(queixa, "➕")
 
-with col2:
-    for queixa in queixas[mid_point:]:
-        icone = icones_queixas.get(queixa, "➕")
-        if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_2"):
-            gravidade = st.slider(
-                f"Gravidade de {queixa} (CTCAE)",
-                min_value=0,
-                max_value=4,
-                step=1,
-                key=f"grav_{queixa}_2"
-            )
-            queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
+            if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_1"):
+                gravidade = st.slider(
+                    f"Gravidade de {queixa} (CTCAE)",
+                    min_value=0,
+                    max_value=4,
+                    step=1,
+                    key=f"grav_{queixa}_1"
+                )
+
+                queixas_gravidade.append(
+                    f"{queixa} - Gravidade {gravidade}"
+                )
+
+    with col2:
+        for queixa in queixas[mid_point:]:
+            icone = icones_queixas.get(queixa, "➕")
+
+            if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_2"):
+                gravidade = st.slider(
+                    f"Gravidade de {queixa} (CTCAE)",
+                    min_value=0,
+                    max_value=4,
+                    step=1,
+                    key=f"grav_{queixa}_2"
+                )
+
+                queixas_gravidade.append(
+                    f"{queixa} - Gravidade {gravidade}"
+                )
 
     # Entrada personalizada para "Outros"
-    if st.checkbox("Outros", key="Outros"):
+    if st.checkbox("➕ Outros", key="Outros"):
         outra_queixa = st.text_input("Digite a outra queixa:")
+
         if outra_queixa:
-            gravidade = st.slider(f"Gravidade de {outra_queixa} (CTCAE)", min_value=0, max_value=4, step=1, key=f"grav_{outra_queixa}")
-            queixas_gravidade.append(f"{outra_queixa} - Gravidade {gravidade}")
+            gravidade = st.slider(
+                f"Gravidade de {outra_queixa} (CTCAE)",
+                min_value=0,
+                max_value=4,
+                step=1,
+                key=f"grav_{outra_queixa}"
+            )
+
+            queixas_gravidade.append(
+                f"{outra_queixa} - Gravidade {gravidade}"
+            )
 
     intervencoes_selecionadas = []
+
     for queixa in queixas_gravidade:
         nome_queixa, _ = queixa.split(" - Gravidade ")
-        st.subheader(f"Sugestões de Intervenção para {nome_queixa}")
-        if nome_queixa in intervencoes:
-            for intervencao in intervencoes.get(nome_queixa, []):
-                if st.checkbox(intervencao, key=f"interv_{nome_queixa}_{intervencao}"):
-                    intervencoes_selecionadas.append((nome_queixa, intervencao))
-            # Adicionar opção para intervenção personalizada
-            if st.checkbox("Outra(s)", key=f"interv_{nome_queixa}_outras"):
-                intervencao_personalizada = st.text_input(f"Digite a intervenção para {nome_queixa}:", key=f"input_{nome_queixa}_outras")
-                if intervencao_personalizada:
-                    intervencoes_selecionadas.append((nome_queixa, intervencao_personalizada))
-        else:
-            intervencao_personalizada = st.text_input(f"Digite a intervenção para {nome_queixa}:")
-            if intervencao_personalizada:
-                intervencoes_selecionadas.append((nome_queixa, intervencao_personalizada))
 
-    último_tratamento = st.date_input("Data de último tratamento:")
-    médico_assistente = st.selectbox("Selecione o médico assistente:", ["Sandra Custódio", "Joana Marinho", "Enrique Dias", "Moreira Pinto", "Andreia Capela", "Cristiana Marques", "Inês Leão",
-        "Sandra Silva", "Helena Guedes", "Adriana Soares", "Ana Raquel Monteiro", "Raquel Basto"])  # Exemplo de opções
+        st.subheader(f"Sugestões de Intervenção para {nome_queixa}")
+
+        if nome_queixa in intervencoes:
+
+            for intervencao in intervencoes.get(nome_queixa, []):
+
+                if st.checkbox(
+                    intervencao,
+                    key=f"interv_{nome_queixa}_{intervencao}"
+                ):
+                    intervencoes_selecionadas.append(
+                        (nome_queixa, intervencao)
+                    )
+
+            if st.checkbox(
+                "Outra(s)",
+                key=f"interv_{nome_queixa}_outras"
+            ):
+
+                intervencao_personalizada = st.text_input(
+                    f"Digite a intervenção para {nome_queixa}:",
+                    key=f"input_{nome_queixa}_outras"
+                )
+
+                if intervencao_personalizada:
+                    intervencoes_selecionadas.append(
+                        (nome_queixa, intervencao_personalizada)
+                    )
+
+        else:
+            intervencao_personalizada = st.text_input(
+                f"Digite a intervenção para {nome_queixa}:"
+            )
+
+            if intervencao_personalizada:
+                intervencoes_selecionadas.append(
+                    (nome_queixa, intervencao_personalizada)
+                )
+
+    último_tratamento = st.date_input(
+        "Data de último tratamento:"
+    )
+
+    médico_assistente = st.selectbox(
+        "Selecione o médico assistente:",
+        [
+            "Sandra Custódio",
+            "Joana Marinho",
+            "Enrique Dias",
+            "Moreira Pinto",
+            "Andreia Capela",
+            "Cristiana Marques",
+            "Inês Leão",
+            "Sandra Silva",
+            "Helena Guedes",
+            "Adriana Soares",
+            "Ana Raquel Monteiro",
+            "Raquel Basto"
+        ]
+    )
 
     return Paciente(
         nome,
