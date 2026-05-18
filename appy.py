@@ -217,6 +217,7 @@ def coletar_dados_paciente():
                "Toxicidade renal", 
                "Tonturas", 
                "Vómitos"]
+    
     icones_queixas = {"Alteração da função hepática", "Anemia": "🩸", 
                 "Artralgia": "⚠️", 
                 "Alopecia": "👨🏻‍🦲", 
