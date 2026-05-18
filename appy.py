@@ -218,7 +218,8 @@ def coletar_dados_paciente():
                "Tonturas", 
                "Vómitos"]
     
-    icones_queixas = {"Alteração da função hepática", "Anemia": "🩸", 
+    icones_queixas = {"Alteração da função hepática": "➕", 
+                "Anemia": "🩸", 
                 "Artralgia": "➕", 
                 "Alopecia": "👨🏻‍🦲", 
                 "Astenia": "➕", 
