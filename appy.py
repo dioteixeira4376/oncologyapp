@@ -331,7 +331,7 @@ section[data-testid="stSidebar"] {
 def main():
 
     with st.sidebar:
-        st.image("logo.png", width=130)
+        st.image("https://www.ulsge.min-saude.pt/static/media/logo.a59fd095.png", width=130)
         st.markdown("## Oncology App")
         st.markdown("---")
         st.markdown("📋 Triagem de Pacientes")
@@ -342,7 +342,7 @@ def main():
     col_logo, col_title, col_btn = st.columns([1, 4, 2])
 
     with col_logo:
-        st.image("logo.png", width=90)
+        st.image("https://www.ulsge.min-saude.pt/static/media/logo.a59fd095.png", width=90)
 
     with col_title:
         st.caption("TRIAGEM")
