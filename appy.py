@@ -181,14 +181,23 @@ def coletar_dados_paciente():
     "https://www.ukacuteoncology.co.uk/application/files/4217/3799/3595/UKONS_Triage_tool_poster_A3_V10.pdf"
 )
 
-    queixas = ["Alteração da função hepática", "Anemia": "🩸", "Artralgia", "Alopecia": "👨🏻‍🦲", "Astenia", "Cefaleias": "🤕",
+    queixas = ["Alteração da função hepática", "Anemia", "Artralgia", "Alopecia", "Astenia", "Cefaleias",
+               "Cardiomiopatia irreversível", "Cistite hemorrágica", "Dermatite", "Diarreia", "Disgeusia",
+               "Disosmia", "Eritrodisestesia palmoplantar", "Erupções cutâneas", "Fadiga", "Febre", "Fibrose Pulmonar",
+               "Hemorragia", "Insónia", "Mucosite", "Náuseas", "Neuropatia Central", "Neuropatia periférica",
+               "Nefrotoxicidade", "Obstipação", "Ototoxicidade", "Paroniquia", "Perda de apetite",
+               "Prurido", "Reações de hipersensibilidade", "Síndrome Colinérgico", "Síndrome de retenção de fluidos",
+               "Toxicidade neurológica", "Toxicidade renal", "Tonturas", "Vómitos"]
+    icones_queixas = {
+    "Alteração da função hepática", "Anemia": "🩸", "Artralgia", "Alopecia": "👨🏻‍🦲", "Astenia", "Cefaleias": "🤕",
                "Cardiomiopatia irreversível": "🫀", "Cistite hemorrágica", "Dermatite", "Diarreia": "🚽", "Disgeusia",
                "Disosmia", "Eritrodisestesia palmoplantar": "✋🏽", "Erupções cutâneas", "Fadiga", "Febre": "🌡️", "Fibrose Pulmonar": "🫁",
                "Hemorragia": "🩸", "Insónia": "😴", "Mucosite": "👄", "Náuseas": "🤢", "Neuropatia Central": "🧠", "Neuropatia periférica": "⚡",
                "Nefrotoxicidade", "Obstipação": "🚽", "Ototoxicidade": "👂", "Paroniquia": "💅🏻", "Perda de apetite",
                "Prurido", "Reações de hipersensibilidade", "Síndrome Colinérgico", "Síndrome de retenção de fluidos",
-               "Toxicidade neurológica", "Toxicidade renal", "Tonturas", "Vómitos": "🤮"]
-    
+               "Toxicidade neurológica", "Toxicidade renal", "Tonturas", "Vómitos": "🤮"
+}
+
     # Lista completa de queixas
     queixas_gravidade = []
 
