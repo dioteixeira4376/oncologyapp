@@ -181,13 +181,13 @@ def coletar_dados_paciente():
     "https://www.ukacuteoncology.co.uk/application/files/4217/3799/3595/UKONS_Triage_tool_poster_A3_V10.pdf"
 )
 
-    queixas = ["Alteração da função hepática", "Anemia", "Artralgia", "Alopecia", "Astenia", "Cefaleias",
-               "Cardiomiopatia irreversível", "Cistite hemorrágica", "Dermatite", "Diarreia", "Disgeusia",
-               "Disosmia", "Eritrodisestesia palmoplantar", "Erupções cutâneas", "Fadiga", "Febre", "Fibrose Pulmonar",
-               "Hemorragia", "Insónia", "Mucosite", "Náuseas", "Neuropatia Central", "Neuropatia periférica",
-               "Nefrotoxicidade", "Obstipação", "Ototoxicidade", "Paroniquia", "Perda de apetite",
+    queixas = ["Alteração da função hepática", "Anemia": "🩸", "Artralgia", "Alopecia": "👨🏻‍🦲", "Astenia", "Cefaleias": "🤕",
+               "Cardiomiopatia irreversível": "🫀", "Cistite hemorrágica", "Dermatite", "Diarreia": "🚽", "Disgeusia",
+               "Disosmia", "Eritrodisestesia palmoplantar": "✋🏽", "Erupções cutâneas", "Fadiga", "Febre": "🌡️", "Fibrose Pulmonar": "🫁",
+               "Hemorragia": "🩸", "Insónia": "😴", "Mucosite": "👄", "Náuseas": "🤢", "Neuropatia Central": "🧠", "Neuropatia periférica": "⚡",
+               "Nefrotoxicidade", "Obstipação": "🚽", "Ototoxicidade": "👂", "Paroniquia": "💅🏻", "Perda de apetite",
                "Prurido", "Reações de hipersensibilidade", "Síndrome Colinérgico", "Síndrome de retenção de fluidos",
-               "Toxicidade neurológica", "Toxicidade renal", "Tonturas", "Vómitos"]
+               "Toxicidade neurológica", "Toxicidade renal", "Tonturas", "Vómitos": "🤮"]
     
     # Lista completa de queixas
     queixas_gravidade = []
@@ -198,13 +198,15 @@ def coletar_dados_paciente():
 
     with col1:
         for queixa in queixas[:mid_point]:
-            if st.checkbox(queixa, key=f"{queixa}_1"):
+            icone = icones_queixas.get(queixa, "➕")
+            if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_1"):
                 gravidade = st.slider(f"Gravidade de {queixa} (CTCAE)", min_value=0, max_value=4, step=1, key=f"grav_{queixa}_1")
                 queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
 
     with col2:
         for queixa in queixas[mid_point:]:
-            if st.checkbox(queixa, key=f"{queixa}_2"):
+            icone = icones_queixas.get(queixa, "➕")
+            if st.checkbox(f"{icone}  {queixa}", key=f"{queixa}_2"):
                 gravidade = st.slider(f"Gravidade de {queixa} (CTCAE)", min_value=0, max_value=4, step=1, key=f"grav_{queixa}_2")
                 queixas_gravidade.append(f"{queixa} - Gravidade {gravidade}")
 
