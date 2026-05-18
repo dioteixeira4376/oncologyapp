@@ -317,7 +317,7 @@ with col2:
     médico_assistente = st.selectbox("Selecione o médico assistente:", ["Sandra Custódio", "Joana Marinho", "Enrique Dias", "Moreira Pinto", "Andreia Capela", "Cristiana Marques", "Inês Leão",
         "Sandra Silva", "Helena Guedes", "Adriana Soares", "Ana Raquel Monteiro", "Raquel Basto"])  # Exemplo de opções
 
-        return Paciente(
+    return Paciente(
         nome,
         data_de_nascimento,
         processo,
